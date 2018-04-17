@@ -15,3 +15,23 @@ targets:
       INFOPLIST_FILE: "AppRTCMobile/ios/Info.plist"
       ENABLE_BITCODE: "NO"
       OTHER_LDFLAGS: "$(inherited) -licucore"
+    dependencies:
+      - target: WebRTC
+  WebRTC:
+    type: framework
+    platform: iOS
+    sources:
+      - path: WebRTC/Framework
+        excludes:
+          - "Headers/WebRTC/*.*"
+          - "UnitTests/*.*"
+          - "Modules/*.*"
+          - "Classes/Metal/RTCMTLNSVideoView.m"
+      - path: WebRTC/include
+        excludes:
+          - "base/**.*"
+    settings:
+      INFOPLIST_FILE: "WebRTC/Framework/Info.plist"
+      ENABLE_BITCODE: "NO"
+      CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES: "YES"
+      USER_HEADER_SEARCH_PATHS: "$(inherited) $(PROJECT_DIR)/WebRTC/include $(PROJECT_DIR)/WebRTC/include/sdk/objc/Framework/Headers $(PROJECT_DIR)/WebRTC/Framework/Native"
