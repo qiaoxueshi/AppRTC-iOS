@@ -80,7 +80,7 @@
 - (void)userDidFinishSetup {
   // URL of the resource where broadcast can be viewed that will be returned to the application
   NSURL *broadcastURL = [NSURL
-      URLWithString:[NSString stringWithFormat:@"https://appr.tc/r/%@", _roomNameField.text]];
+      URLWithString:[NSString stringWithFormat:@"https://t.appcode.app/r/%@", _roomNameField.text]];
 
   // Dictionary with setup information that will be provided to broadcast extension when broadcast
   // is started
